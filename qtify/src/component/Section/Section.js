@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "../Card/Card"; // Reusable Card Component
 import { Grid, Button, Collapse } from "@mui/material";
 import styles from "./Section.module.css";
+import Carousel from "../Carousel/Carousel";
 
 const Section = ({ title, endpoint }) => {
   const [albums, setAlbums] = useState([]); // Full API response
@@ -27,8 +28,14 @@ const Section = ({ title, endpoint }) => {
     setCollapsed(!collapsed);
   };
 
-  // First-row display (when collapsed) is fixed to the first 7 items
-  const visibleAlbums = collapsed ? albums.slice(0, 7) : albums;
+  const renderCard = (album) => (
+    <Card
+      key={album.id}
+      image={album.image}
+      albumName={album.title}
+      follows={`${album.follows} Follows`}
+    />
+  );
 
   return (
     <div className={styles.section}>
@@ -44,19 +51,18 @@ const Section = ({ title, endpoint }) => {
         </Button>
       </div>
 
+
       {/* Collapsed View (First Row Only) */}
       {collapsed && (
-        <Grid container spacing={2} className={styles.grid}>
-          {visibleAlbums.map((album) => (
-            <Grid item xs={6} sm={4} md={2} lg={1.7} key={album.id}>
-              <Card
-                image={album.image}
-                albumName={album.title}
-                follows={`${album.follows} Follows`}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        <Carousel
+        data={albums}
+        renderItem={renderCard}
+        slidesPerViewConfig={{
+          mobile: 2,
+          tablet: 5,
+          desktop: 7,
+        }}
+      />
       )}
 
       {/* Expanded View (All Rows) */}
