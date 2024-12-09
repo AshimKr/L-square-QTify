@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "../Card/Card"; // Reusable Card Component
+import Card from "../Card/Card";
 import { Grid, Button, Collapse } from "@mui/material";
 import styles from "./Section.module.css";
 import Carousel from "../Carousel/Carousel";
 
 const Section = ({ title, endpoint }) => {
-  const [albums, setAlbums] = useState([]); // Full API response
-  const [collapsed, setCollapsed] = useState(true); // Collapse state
+  const [albums, setAlbums] = useState([]);
+  const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
     // Fetch data from the API
     const fetchAlbums = async () => {
       try {
         const response = await axios.get(endpoint);
-        // Ensure we always display exactly what the API sends
         setAlbums(response.data || []);
       } catch (error) {
         console.error("Error fetching albums:", error);
@@ -33,7 +32,7 @@ const Section = ({ title, endpoint }) => {
       key={album.id}
       image={album.image}
       albumName={album.title}
-      follows={`${album.follows} Follows`}
+      follows={album.follows}
     />
   );
 
@@ -73,7 +72,7 @@ const Section = ({ title, endpoint }) => {
               <Card
                 image={album.image}
                 albumName={album.title}
-                follows={`${album.follows} Follows`}
+                follows={album.follows}
               />
             </Grid>
           ))}

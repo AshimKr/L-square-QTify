@@ -1,0 +1,73 @@
+.songsSection {
+    background-color: #121212;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .tabs {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #FFFFFF !important;
+  }
+  
+  .tab {
+    
+    color: #FFFFFF !important;
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 80px;
+  }
+  
+  .activeTab {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #1db954;
+  }
+  
+  .songCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .songImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .songDetails {
+    margin-top: 8px;
+  }
+  
+  .songTitle {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .songLikes {
+    color: #888;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
