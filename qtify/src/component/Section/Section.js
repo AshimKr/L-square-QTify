@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../Card/Card"; // Reusable Card Component
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, Collapse } from "@mui/material";
 import styles from "./Section.module.css";
 
 const Section = ({ title, endpoint }) => {
@@ -40,17 +40,38 @@ const Section = ({ title, endpoint }) => {
           {collapsed ? "Show All" : "Collapse"}
         </Button>
       </div>
-      <Grid container spacing={2} className={styles.grid}>
-        {visibleAlbums.map((album) => (
-          <Grid item xs={6} sm={4} md={2} lg={1.7} key={album.id}>
-            <Card
-              image={album.image}
-              albumName={album.title}
-              follows={`${album.follows} Follows`}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      
+      {/* Always Visible First Row */}
+      {collapsed && (
+        <Grid container spacing={2} className={styles.grid}>
+          {albums.slice(0, 7).map((album) => (
+            <Grid item xs={6} sm={4} md={2} lg={1.7} key={album.id}>
+              <Card
+                image={album.image}
+                albumName={album.title}
+                follows={`${album.follows} Follows`}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+       {/* Collapse Section */}
+       <Collapse in={!collapsed} timeout="auto">
+        <Grid container spacing={2} className={styles.grid}>
+          {visibleAlbums.map((album) => (
+            <Grid item xs={6} sm={4} md={2} lg={1.7} key={album.id}>
+              <Card
+                image={album.image}
+                albumName={album.title}
+                follows={`${album.follows} Follows`}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Collapse>
+
+
+
     </div>
   );
 };
@@ -59,6 +80,17 @@ export default Section;
 
 
 
+{/* <Grid container spacing={2} className={styles.grid}>
+  {visibleAlbums.map((album) => (
+    <Grid item xs={6} sm={4} md={2} lg={1.7} key={album.id}>
+      <Card
+        image={album.image}
+        albumName={album.title}
+        follows={`${album.follows} Follows`}
+      />
+    </Grid>
+  ))}
+</Grid> */}
 
 
 
