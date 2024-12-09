@@ -15,6 +15,10 @@ function App() {
           endpoint="https://qtify-backend-labs.crio.do/albums/top"
           title="Top Albums"
         />
+        <Section  
+          endpoint="https://qtify-backend-labs.crio.do/albums/new"
+          title="New Albums"
+        />
         <Routes>
           <Route path="/" element={<h1>Hello World</h1>} />
         </Routes>
