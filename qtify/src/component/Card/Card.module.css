@@ -1,0 +1,49 @@
+.card {
+    width: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    background-color: #121212;
+    font-family: "Poppins", sans-serif;
+}
+
+.imageContainer {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.albumImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bottomSection {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #FFFFFF;
+    border-radius: 0 0 8px 8px;
+}
+
+.chip {
+    align-self: flex-start;
+    /* Align chip to the left */
+    background-color: #121212 !important;
+    color: #FFFFFF !important;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.albumName {
+    font-size: 14px;
+    font-weight: 300;
+    background-color: #121212;
+    color: #FFFFFF;
+    margin-top: 5px;
+    align-self: flex-start; /* Align the album name to the left */
+    text-align: left
+}

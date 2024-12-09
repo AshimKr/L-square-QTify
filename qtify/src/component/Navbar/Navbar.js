@@ -17,7 +17,6 @@ function Navbar({ searchData }) {
         searchData={searchData}
       />
       <Button text="Give Feedback"></Button>
-      {/* <Button>data</Button> */}
     </nav>
   );
 }
